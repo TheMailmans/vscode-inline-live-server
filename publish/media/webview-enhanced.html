@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBX Live Server - Enhanced</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: var(--vscode-font-family);
+            font-size: var(--vscode-font-size);
+            background-color: var(--vscode-editor-background);
+            color: var(--vscode-editor-foreground);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .header {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            grid-template-areas: "nav-tools address-bar status-info";
+            align-items: center;
+            padding: 10px 16px;
+            background-color: var(--vscode-editorWidget-background);
+            border-bottom: 1px solid var(--vscode-panel-border);
+            min-height: 48px;
+            flex-shrink: 0;
+            gap: 12px;
+        }
+
+        .nav-tools {
+            grid-area: nav-tools;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .nav-group {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            margin-right: 8px;
+            padding: 2px;
+            border-radius: 4px;
+            background-color: var(--vscode-toolbar-hoverBackground);
+        }
+
+        .nav-group:last-child {
+            margin-right: 0;
+        }
+
+        .nav-btn {
+            background-color: transparent;
+            color: var(--vscode-foreground);
+            border: none;
+            padding: 6px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 13px;
+            min-width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.1s ease;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background-color: var(--vscode-toolbar-hoverBackground);
+        }
+
+        .nav-btn:active:not(:disabled) {
+            background-color: var(--vscode-toolbar-activeBackground);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .nav-btn.primary {
+            background-color: var(--vscode-button-background);
+            color: var(--vscode-button-foreground);
+        }
+
+        .nav-btn.primary:hover:not(:disabled) {
+            background-color: var(--vscode-button-hoverBackground);
+        }
+
+        .address-container {
+            grid-area: address-bar;
+            display: flex;
+            align-items: center;
+            background-color: var(--vscode-input-background);
+            border: 1px solid var(--vscode-input-border);
+            border-radius: 4px;
+            overflow: hidden;
+            min-width: 200px;
+            max-width: 600px;
+        }
+
+        .address-container:focus-within {
+            border-color: var(--vscode-focusBorder);
+            box-shadow: 0 0 0 1px var(--vscode-focusBorder);
+        }
+
+        .address-bar {
+            flex: 1;
+            padding: 8px 12px;
+            background-color: transparent;
+            color: var(--vscode-input-foreground);
+            border: none;
+            font-family: var(--vscode-editor-font-family);
+            font-size: 13px;
+            outline: none;
+        }
+
+        .address-bar::placeholder {
+            color: var(--vscode-input-placeholderForeground);
+        }
+
+        .address-bar.error {
+            color: var(--vscode-errorForeground);
+        }
+
+        .status-container {
+            grid-area: status-info;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .status {
+            font-size: 12px;
+            color: var(--vscode-descriptionForeground);
+        }
+
+        .status.loading {
+            color: var(--vscode-textLink-foreground);
+        }
+
+        .status.error {
+            color: var(--vscode-errorForeground);
+        }
+
+        .status.success {
+            color: var(--vscode-charts-green);
+        }
+
+        .connection-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .connection-indicator.connected {
+            background-color: var(--vscode-charts-green);
+        }
+
+        .connection-indicator.disconnected {
+            background-color: var(--vscode-errorForeground);
+        }
+
+        .connection-indicator.loading {
+            background-color: var(--vscode-textLink-foreground);
+        }
+
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 14px;
+            color: var(--vscode-descriptionForeground);
+        }
+
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--vscode-panel-border);
+            border-top: 2px solid var(--vscode-textLink-foreground);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 8px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 14px;
+            color: var(--vscode-errorForeground);
+            background-color: var(--vscode-editor-background);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .error-message {
+            margin-bottom: 16px;
+        }
+
+        .retry-btn {
+            background-color: var(--vscode-button-background);
+            color: var(--vscode-button-foreground);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .retry-btn:hover {
+            background-color: var(--vscode-button-hoverBackground);
+        }
+
+        .iframe-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: var(--vscode-editor-background);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .context-menu {
+            position: absolute;
+            background-color: var(--vscode-menu-background);
+            border: 1px solid var(--vscode-menu-border);
+            border-radius: 3px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            min-width: 150px;
+        }
+
+        .context-menu-item {
+            padding: 8px 12px;
+            color: var(--vscode-menu-foreground);
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .context-menu-item:hover {
+            background-color: var(--vscode-menu-selectionBackground);
+        }
+
+        .context-menu-separator {
+            height: 1px;
+            background-color: var(--vscode-menu-separatorBackground);
+            margin: 4px 0;
+        }
+
+        .url-info {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            color: var(--vscode-descriptionForeground);
+            margin-top: 4px;
+        }
+
+        .security-indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .security-indicator.secure {
+            background-color: var(--vscode-charts-green);
+        }
+
+        .security-indicator.insecure {
+            background-color: var(--vscode-errorForeground);
+        }
+
+        /* Responsive design for different VS Code panel sizes */
+        @media (max-width: 800px) {
+            .header {
+                grid-template-columns: auto 1fr;
+                grid-template-areas:
+                    "nav-tools status-info"
+                    "address-bar address-bar";
+                gap: 8px;
+                padding: 8px 12px;
+            }
+
+            .address-container {
+                margin-top: 4px;
+                max-width: none;
+            }
+
+            .nav-group {
+                margin-right: 6px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .header {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "nav-tools"
+                    "address-bar"
+                    "status-info";
+                gap: 6px;
+                padding: 8px;
+            }
+
+            .nav-tools {
+                justify-content: center;
+            }
+
+            .status-container {
+                justify-content: center;
+                font-size: 11px;
+            }
+
+            .nav-btn {
+                min-width: 26px;
+                height: 26px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .nav-group {
+                flex-wrap: wrap;
+                gap: 1px;
+            }
+
+            .nav-btn {
+                min-width: 24px;
+                height: 24px;
+                padding: 4px 6px;
+            }
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: var(--vscode-descriptionForeground);
+            opacity: 0.6;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .footer a {
+            color: var(--vscode-textLink-foreground);
+            text-decoration: none;
+            pointer-events: auto;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="nav-tools">
+                <div class="nav-group">
+                    <button class="nav-btn" id="backBtn" title="Back" disabled>←</button>
+                    <button class="nav-btn" id="forwardBtn" title="Forward" disabled>→</button>
+                    <button class="nav-btn" id="homeBtn" title="Home">⌂</button>
+                    <button class="nav-btn primary" id="refreshBtn" title="Refresh">↻</button>
+                </div>
+                <div class="nav-group">
+                    <button class="nav-btn" id="zoomOutBtn" title="Zoom Out">−</button>
+                    <button class="nav-btn" id="zoomInBtn" title="Zoom In">+</button>
+                    <button class="nav-btn" id="zoomResetBtn" title="Reset Zoom">⊞</button>
+                </div>
+                <div class="nav-group">
+                    <button class="nav-btn" id="externalBtn" title="Open in External Browser">↗</button>
+                    <button class="nav-btn" id="devToolsBtn" title="Developer Tools">⚙</button>
+                </div>
+            </div>
+            <div class="address-container">
+                <input type="text" class="address-bar" id="addressBar" placeholder="Enter URL or search..." spellcheck="false">
+                <div class="url-info">
+                    <div class="security-indicator insecure" id="securityIndicator" title="Connection security"></div>
+                </div>
+            </div>
+            <div class="status-container">
+                <div class="status" id="status">Ready</div>
+                <div class="connection-indicator disconnected" id="connectionIndicator" title="Connection status"></div>
+            </div>
+        </div>
+        <div class="iframe-container">
+            <div class="loading" id="loading">
+                <div class="loading-spinner"></div>
+                <div>Loading preview...</div>
+            </div>
+            <div class="error hidden" id="error">
+                <div class="error-message" id="errorMessage">Failed to load preview</div>
+                <button class="retry-btn" id="retryBtn">Retry</button>
+            </div>
+            <iframe id="previewFrame" class="hidden" sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-popups allow-navigation"></iframe>
+        </div>
+        <div class="footer">
+            <span>Enjoying TBX Live Server? <a href="https://buymeacoffee.com/th3mailman" target="_blank">☕ Buy me a coffee</a></span>
+        </div>
+    </div>
+
+    <div class="context-menu hidden" id="contextMenu">
+        <div class="context-menu-item" id="contextRefresh">Refresh</div>
+        <div class="context-menu-item" id="contextExternal">Open in External Browser</div>
+        <div class="context-menu-separator"></div>
+        <div class="context-menu-item" id="contextCopyUrl">Copy URL</div>
+        <div class="context-menu-item" id="contextClearHistory">Clear History</div>
+        <div class="context-menu-separator"></div>
+        <div class="context-menu-item" id="contextInspect">Inspect Element</div>
+        <div class="context-menu-item" id="contextViewSource">View Source</div>
+        <div class="context-menu-item" id="contextDevTools">Developer Tools</div>
+        <div class="context-menu-separator"></div>
+        <div class="context-menu-item" id="contextZoomIn">Zoom In</div>
+        <div class="context-menu-item" id="contextZoomOut">Zoom Out</div>
+        <div class="context-menu-item" id="contextZoomReset">Reset Zoom</div>
+    </div>
+
+    <script>
+        // This is a standalone HTML file for reference
+        // In the actual implementation, this content is embedded in the TypeScript code
+        // and uses VS Code's acquireVsCodeApi() for message passing
+
+        const backBtn = document.getElementById('backBtn');
+        const forwardBtn = document.getElementById('forwardBtn');
+        const refreshBtn = document.getElementById('refreshBtn');
+        const externalBtn = document.getElementById('externalBtn');
+        const addressBar = document.getElementById('addressBar');
+        const status = document.getElementById('status');
+        const connectionIndicator = document.getElementById('connectionIndicator');
+        const securityIndicator = document.getElementById('securityIndicator');
+        const loading = document.getElementById('loading');
+        const error = document.getElementById('error');
+        const errorMessage = document.getElementById('errorMessage');
+        const retryBtn = document.getElementById('retryBtn');
+        const previewFrame = document.getElementById('previewFrame');
+        const contextMenu = document.getElementById('contextMenu');
+
+        let currentUrl = '';
+        let history = [];
+        let historyIndex = -1;
+        let isLoading = false;
+        let retryCount = 0;
+        const maxRetries = 3;
+
+        // URL validation and formatting
+        function validateAndFormatUrl(input) {
+            if (!input || typeof input !== 'string') {
+                return { valid: false, error: 'Invalid input' };
+            }
+
+            let url = input.trim();
+
+            // Add protocol if missing
+            if (!/^https?:\/\//i.test(url)) {
+                // Check if it looks like a domain/path
+                if (url.includes('.') || url.includes('/') || url.match(/^[a-zA-Z0-9]+:/)) {
+                    url = 'http://' + url;
+                }
+            }
+
+            try {
+                const urlObj = new URL(url);
+                return {
+                    valid: true,
+                    url: urlObj.toString(),
+                    isSecure: urlObj.protocol === 'https:',
+                    hostname: urlObj.hostname,
+                    path: urlObj.pathname + urlObj.search + urlObj.hash
+                };
+            } catch (err) {
+                return { valid: false, error: 'Invalid URL format' };
+            }
+        }
+
+        // Update navigation button states
+        function updateNavigationButtons() {
+            backBtn.disabled = historyIndex <= 0;
+            forwardBtn.disabled = historyIndex >= history.length - 1;
+        }
+
+        // Update connection status
+        function updateConnectionStatus(connected, isLoading = false) {
+            connectionIndicator.className = 'connection-indicator';
+            if (isLoading) {
+                connectionIndicator.classList.add('loading');
+            } else if (connected) {
+                connectionIndicator.classList.add('connected');
+            } else {
+                connectionIndicator.classList.add('disconnected');
+            }
+        }
+
+        // Update security indicator
+        function updateSecurityIndicator(isSecure) {
+            securityIndicator.className = 'security-indicator';
+            securityIndicator.classList.add(isSecure ? 'secure' : 'insecure');
+            securityIndicator.title = isSecure ? 'Secure connection (HTTPS)' : 'Insecure connection (HTTP)';
+        }
+
+        // Update status display
+        function updateStatus(message, type = 'normal') {
+            status.textContent = message;
+            status.className = 'status';
+            if (type !== 'normal') {
+                status.classList.add(type);
+            }
+        }
+
+        // Show loading state
+        function showLoading() {
+            isLoading = true;
+            loading.classList.remove('hidden');
+            error.classList.add('hidden');
+            previewFrame.classList.add('hidden');
+            updateConnectionStatus(true, true);
+            updateStatus('Loading...', 'loading');
+        }
+
+        // Show error state
+        function showError(message, canRetry = true) {
+            isLoading = false;
+            loading.classList.add('hidden');
+            error.classList.remove('hidden');
+            previewFrame.classList.add('hidden');
+            errorMessage.textContent = message;
+            retryBtn.style.display = canRetry ? 'block' : 'none';
+            updateConnectionStatus(false);
+            updateStatus('Error', 'error');
+        }
+
+        // Show preview
+        function showPreview() {
+            isLoading = false;
+            loading.classList.add('hidden');
+            error.classList.add('hidden');
+            previewFrame.classList.remove('hidden');
+            updateConnectionStatus(true);
+            updateStatus('Live Preview', 'success');
+        }
+
+        // Add URL to history
+        function addToHistory(url) {
+            if (currentUrl !== url) {
+                // Remove any forward history when navigating to a new URL
+                if (historyIndex < history.length - 1) {
+                    history = history.slice(0, historyIndex + 1);
+                }
+                history.push(url);
+                historyIndex = history.length - 1;
+                updateNavigationButtons();
+            }
+        }
+
+        // Navigate back in history
+        function navigateBack() {
+            if (historyIndex > 0) {
+                historyIndex--;
+                const url = history[historyIndex];
+                loadPreview(url, false);
+            }
+        }
+
+        // Navigate forward in history
+        function navigateForward() {
+            if (historyIndex < history.length - 1) {
+                historyIndex++;
+                const url = history[historyIndex];
+                loadPreview(url, false);
+            }
+        }
+
+        // Load preview with URL
+        function loadPreview(url, addToHistoryFlag = true) {
+            const validation = validateAndFormatUrl(url);
+            if (!validation.valid) {
+                addressBar.classList.add('error');
+                showError(validation.error);
+                return;
+            }
+
+            addressBar.classList.remove('error');
+            currentUrl = validation.url;
+            addressBar.value = currentUrl;
+
+            if (addToHistoryFlag) {
+                addToHistory(currentUrl);
+            }
+
+            updateSecurityIndicator(validation.isSecure);
+            showLoading();
+
+            try {
+                previewFrame.src = currentUrl;
+
+                // Set up iframe event handlers
+                const loadHandler = () => {
+                    showPreview();
+                    retryCount = 0;
+                };
+
+                const errorHandler = () => {
+                    const errorMsg = retryCount < maxRetries
+                        ? `Failed to load preview (attempt ${retryCount + 1})`
+                        : 'Failed to load preview after multiple attempts';
+                    showError(errorMsg, retryCount < maxRetries);
+                };
+
+                previewFrame.onload = loadHandler;
+                previewFrame.onerror = errorHandler;
+
+                // Timeout for loading
+                setTimeout(() => {
+                    if (isLoading) {
+                        errorHandler();
+                    }
+                }, 30000); // 30 second timeout
+
+            } catch (err) {
+                showError('Invalid URL format');
+            }
+        }
+
+        // Retry loading
+        function retryLoad() {
+            if (currentUrl && retryCount < maxRetries) {
+                retryCount++;
+                loadPreview(currentUrl, false);
+            }
+        }
+
+        // Open in external browser
+        function openExternal() {
+            if (currentUrl) {
+                window.open(currentUrl, '_blank');
+            }
+        }
+
+        // Copy URL to clipboard
+        function copyUrl() {
+            if (currentUrl && navigator.clipboard) {
+                navigator.clipboard.writeText(currentUrl).then(() => {
+                    updateStatus('URL copied to clipboard', 'success');
+                    setTimeout(() => updateStatus('Ready'), 2000);
+                }).catch(() => {
+                    updateStatus('Failed to copy URL', 'error');
+                    setTimeout(() => updateStatus('Ready'), 2000);
+                });
+            }
+        }
+
+        // Show context menu
+        function showContextMenu(x, y) {
+            contextMenu.style.left = x + 'px';
+            contextMenu.style.top = y + 'px';
+            contextMenu.classList.remove('hidden');
+        }
+
+        // Hide context menu
+        function hideContextMenu() {
+            contextMenu.classList.add('hidden');
+        }
+
+        // Keyboard shortcuts
+        function handleKeyboardShortcuts(event) {
+            if (event.ctrlKey || event.metaKey) {
+                switch (event.key) {
+                    case 'r':
+                        event.preventDefault();
+                        if (currentUrl) {
+                            loadPreview(currentUrl, false);
+                        }
+                        break;
+                    case 'l':
+                        event.preventDefault();
+                        addressBar.focus();
+                        addressBar.select();
+                        break;
+                    case '[':
+                        event.preventDefault();
+                        navigateBack();
+                        break;
+                    case ']':
+                        event.preventDefault();
+                        navigateForward();
+                        break;
+                }
+            } else if (event.key === 'Escape') {
+                hideContextMenu();
+            }
+        }
+
+        // Event listeners
+        backBtn.addEventListener('click', navigateBack);
+        forwardBtn.addEventListener('click', navigateForward);
+        refreshBtn.addEventListener('click', () => {
+            if (currentUrl) {
+                loadPreview(currentUrl, false);
+            }
+        });
+        externalBtn.addEventListener('click', openExternal);
+        retryBtn.addEventListener('click', retryLoad);
+
+        addressBar.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                const url = addressBar.value.trim();
+                if (url) {
+                    loadPreview(url);
+                }
+            }
+        });
+
+        addressBar.addEventListener('blur', () => {
+            addressBar.classList.remove('error');
+        });
+
+        // Context menu events
+        document.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            showContextMenu(event.clientX, event.clientY);
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!contextMenu.contains(event.target)) {
+                hideContextMenu();
+            }
+        });
+
+        // Context menu item handlers
+        document.getElementById('contextRefresh').addEventListener('click', () => {
+            if (currentUrl) {
+                loadPreview(currentUrl, false);
+            }
+            hideContextMenu();
+        });
+
+        document.getElementById('contextExternal').addEventListener('click', () => {
+            openExternal();
+            hideContextMenu();
+        });
+
+        document.getElementById('contextCopyUrl').addEventListener('click', () => {
+            copyUrl();
+            hideContextMenu();
+        });
+
+        document.getElementById('contextClearHistory').addEventListener('click', () => {
+            history = [];
+            historyIndex = -1;
+            updateNavigationButtons();
+            updateStatus('History cleared', 'success');
+            setTimeout(() => updateStatus('Ready'), 2000);
+            hideContextMenu();
+        });
+
+        // Global keyboard shortcuts
+        document.addEventListener('keydown', handleKeyboardShortcuts);
+
+        // Initialize
+        updateNavigationButtons();
+        updateStatus('Ready');
+
+        // Example usage (this would normally come from VS Code extension messages)
+        // loadPreview('http://localhost:5500/index.html');
+    </script>
+</body>
+</html>

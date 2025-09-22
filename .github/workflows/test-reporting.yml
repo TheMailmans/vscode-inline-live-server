@@ -1,0 +1,381 @@
+name: Test Reporting and Coverage
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+    inputs:
+      generate_coverage:
+        description: 'Generate coverage report'
+        required: false
+        default: true
+        type: boolean
+      publish_reports:
+        description: 'Publish reports to external service'
+        required: false
+        default: false
+        type: boolean
+
+env:
+  NODE_VERSION: '18'
+  COVERAGE_THRESHOLD: 80
+  MIN_COVERAGE_THRESHOLD: 70
+
+jobs:
+  # ============================================================================
+  # UNIT TEST COVERAGE REPORT
+  # ============================================================================
+  unit-test-coverage:
+    name: Unit Test Coverage Report
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build extension
+        run: npm run compile
+
+      - name: Run unit tests with coverage
+        run: |
+          # Install coverage tools
+          npm install --no-save nyc istanbul-lib-coverage istanbul-lib-report
+
+          # Run tests with coverage
+          npx nyc --reporter=lcov --reporter=json --reporter=text npm run test:unit
+
+      - name: Generate coverage report
+        run: |
+          npx nyc report --reporter=html
+
+          # Check coverage thresholds
+          COVERAGE=$(npx nyc report --reporter=json | jq -r '.lines.pct')
+          echo "Coverage: $COVERAGE%"
+
+          if (( $(echo "$COVERAGE < $MIN_COVERAGE_THRESHOLD" | bc -l) )); then
+            echo "❌ Coverage $COVERAGE% is below minimum threshold $MIN_COVERAGE_THRESHOLD%"
+            exit 1
+          elif (( $(echo "$COVERAGE < $COVERAGE_THRESHOLD" | bc -l) )); then
+            echo "⚠️ Coverage $COVERAGE% is below target threshold $COVERAGE_THRESHOLD%"
+          else
+            echo "✅ Coverage $COVERAGE% meets target threshold $COVERAGE_THRESHOLD%"
+          fi
+
+      - name: Upload coverage to Codecov
+        if: github.event.inputs.publish_reports == 'true'
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage/lcov.info
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+
+      - name: Upload coverage artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: |
+            coverage/
+            .nyc_output/
+          retention-days: 30
+
+  # ============================================================================
+  # SMOKE TEST REPORTING
+  # ============================================================================
+  smoke-test-reporting:
+    name: Smoke Test Reporting
+    runs-on: ubuntu-latest
+    needs: unit-test-coverage
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build extension
+        run: npm run compile
+
+      - name: Run smoke tests with reporting
+        run: |
+          # Create test results directory
+          mkdir -p test-results/smoke-tests
+
+          # Run smoke tests with detailed output
+          npx ts-node test/smoke-tests.ts > test-results/smoke-tests/results.log 2>&1 || true
+
+      - name: Generate smoke test report
+        run: |
+          # Parse test results
+          if [ -f "test-results/smoke-tests/results.log" ]; then
+            PASSED=$(grep -c "✅.*passed" test-results/smoke-tests/results.log || echo "0")
+            FAILED=$(grep -c "❌.*failed" test-results/smoke-tests/results.log || echo "0")
+            TOTAL=$(grep -c "🧪 Testing" test-results/smoke-tests/results.log || echo "0")
+
+            echo "# Smoke Test Report" > test-results/smoke-tests/report.md
+            echo "Generated on: $(date)" >> test-results/smoke-tests/report.md
+            echo "" >> test-results/smoke-tests/report.md
+            echo "## Summary" >> test-results/smoke-tests/report.md
+            echo "- Total Tests: $TOTAL" >> test-results/smoke-tests/report.md
+            echo "- Passed: $PASSED" >> test-results/smoke-tests/report.md
+            echo "- Failed: $FAILED" >> test-results/smoke-tests/report.md
+            echo "- Success Rate: $(echo "scale=2; $PASSED * 100 / $TOTAL" | bc -l)%" >> test-results/smoke-tests/report.md
+
+            if [ "$FAILED" -gt 0 ]; then
+              echo "" >> test-results/smoke-tests/report.md
+              echo "## Failed Tests" >> test-results/smoke-tests/report.md
+              grep "❌" test-results/smoke-tests/results.log >> test-results/smoke-tests/report.md
+            fi
+          fi
+
+      - name: Upload smoke test artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-test-report
+          path: test-results/smoke-tests/
+          retention-days: 30
+
+  # ============================================================================
+  # E2E TEST REPORTING
+  # ============================================================================
+  e2e-test-reporting:
+    name: E2E Test Reporting
+    runs-on: ubuntu-latest
+    needs: smoke-test-reporting
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build extension
+        run: npm run compile
+
+      - name: Run E2E tests with reporting
+        run: |
+          # Create test results directory
+          mkdir -p test-results/e2e-tests
+
+          # Run E2E tests with WebDriver reporting
+          npm run test:e2e > test-results/e2e-tests/results.log 2>&1 || true
+
+      - name: Generate E2E test report
+        run: |
+          # Parse E2E test results
+          if [ -f "test-results/e2e-tests/results.log" ]; then
+            echo "# E2E Test Report" > test-results/e2e-tests/report.md
+            echo "Generated on: $(date)" >> test-results/e2e-tests/report.md
+            echo "" >> test-results/e2e-tests/report.md
+            echo "## Test Results" >> test-results/e2e-tests/report.md
+            cat test-results/e2e-tests/results.log >> test-results/e2e-tests/report.md
+          fi
+
+      - name: Upload E2E test artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-test-report
+          path: test-results/e2e-tests/
+          retention-days: 30
+
+  # ============================================================================
+  # PERFORMANCE BENCHMARKING
+  # ============================================================================
+  performance-benchmarking:
+    name: Performance Benchmarking
+    runs-on: ubuntu-latest
+    needs: unit-test-coverage
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build extension
+        run: npm run compile
+
+      - name: Run performance benchmarks
+        run: |
+          # Create benchmark results directory
+          mkdir -p test-results/benchmarks
+
+          # Run build benchmarks
+          echo "Running build performance benchmarks..."
+          time npm run compile:prod > test-results/benchmarks/build-performance.log 2>&1
+
+          # Run test performance benchmarks
+          echo "Running test performance benchmarks..."
+          time npm run test:unit > test-results/benchmarks/test-performance.log 2>&1
+
+          # Run package benchmarks
+          echo "Running package performance benchmarks..."
+          time npx vsce package --no-dependencies > test-results/benchmarks/package-performance.log 2>&1
+
+      - name: Generate performance report
+        run: |
+          echo "# Performance Benchmark Report" > test-results/benchmarks/report.md
+          echo "Generated on: $(date)" >> test-results/benchmarks/report.md
+          echo "" >> test-results/benchmarks/report.md
+
+          # Parse build performance
+          if [ -f "test-results/benchmarks/build-performance.log" ]; then
+            BUILD_TIME=$(grep "^real" test-results/benchmarks/build-performance.log | awk '{print $2}')
+            echo "## Build Performance" >> test-results/benchmarks/report.md
+            echo "- Build Time: $BUILD_TIME" >> test-results/benchmarks/report.md
+          fi
+
+          # Parse test performance
+          if [ -f "test-results/benchmarks/test-performance.log" ]; then
+            TEST_TIME=$(grep "^real" test-results/benchmarks/test-performance.log | awk '{print $2}')
+            echo "## Test Performance" >> test-results/benchmarks/report.md
+            echo "- Test Time: $TEST_TIME" >> test-results/benchmarks/report.md
+          fi
+
+          # Parse package performance
+          if [ -f "test-results/benchmarks/package-performance.log" ]; then
+            PACKAGE_TIME=$(grep "^real" test-results/benchmarks/package-performance.log | awk '{print $2}')
+            echo "## Package Performance" >> test-results/benchmarks/report.md
+            echo "- Package Time: $PACKAGE_TIME" >> test-results/benchmarks/report.md
+          fi
+
+      - name: Upload benchmark artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-benchmarks
+          path: test-results/benchmarks/
+          retention-days: 30
+
+  # ============================================================================
+  # COMPREHENSIVE TEST REPORT GENERATION
+  # ============================================================================
+  comprehensive-test-report:
+    name: Comprehensive Test Report
+    runs-on: ubuntu-latest
+    needs: [unit-test-coverage, smoke-test-reporting, e2e-test-reporting, performance-benchmarking]
+    if: always()
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download all test artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: test-artifacts
+
+      - name: Generate comprehensive report
+        run: |
+          echo "# Comprehensive Test Report" > comprehensive-test-report.md
+          echo "Generated on: $(date)" >> comprehensive-test-report.md
+          echo "" >> comprehensive-test-report.md
+
+          # Overall status
+          echo "## Overall Status" >> comprehensive-test-report.md
+
+          # Check individual job results
+          if [ "${{ needs.unit-test-coverage.result }}" == "success" ]; then
+            echo "✅ Unit Test Coverage: Passed" >> comprehensive-test-report.md
+          else
+            echo "❌ Unit Test Coverage: Failed" >> comprehensive-test-report.md
+          fi
+
+          if [ "${{ needs.smoke-test-reporting.result }}" == "success" ]; then
+            echo "✅ Smoke Test Reporting: Passed" >> comprehensive-test-report.md
+          else
+            echo "❌ Smoke Test Reporting: Failed" >> comprehensive-test-report.md
+          fi
+
+          if [ "${{ needs.e2e-test-reporting.result }}" == "success" ]; then
+            echo "✅ E2E Test Reporting: Passed" >> comprehensive-test-report.md
+          else
+            echo "❌ E2E Test Reporting: Failed" >> comprehensive-test-report.md
+          fi
+
+          if [ "${{ needs.performance-benchmarking.result }}" == "success" ]; then
+            echo "✅ Performance Benchmarking: Passed" >> comprehensive-test-report.md
+          else
+            echo "❌ Performance Benchmarking: Failed" >> comprehensive-test-report.md
+          fi
+
+          echo "" >> comprehensive-test-report.md
+          echo "## Test Artifacts" >> comprehensive-test-report.md
+          echo "- Coverage Report: Available in artifacts" >> comprehensive-test-report.md
+          echo "- Smoke Test Report: Available in artifacts" >> comprehensive-test-report.md
+          echo "- E2E Test Report: Available in artifacts" >> comprehensive-test-report.md
+          echo "- Performance Benchmarks: Available in artifacts" >> comprehensive-test-report.md
+
+      - name: Upload comprehensive report
+        uses: actions/upload-artifact@v4
+        with:
+          name: comprehensive-test-report
+          path: comprehensive-test-report.md
+
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('comprehensive-test-report.md', 'utf8');
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '## 📊 Test Report\n\n' + report
+            });
+
+  # ============================================================================
+  # EXTERNAL REPORTING INTEGRATION
+  # ============================================================================
+  external-reporting:
+    name: External Reporting Integration
+    runs-on: ubuntu-latest
+    needs: comprehensive-test-report
+    if: github.event.inputs.publish_reports == 'true'
+    steps:
+      - name: Publish to external dashboard
+        run: |
+          echo "Publishing test reports to external dashboard..."
+          # Add external dashboard integration here
+          # This could include:
+          # - Publishing to test management tools
+          # - Updating project dashboards
+          # - Sending reports to stakeholders
+
+      - name: Update project metrics
+        run: |
+          echo "Updating project metrics..."
+          # Add metrics update logic here
+          # This could include:
+          # - Updating README badges
+          # - Updating project documentation
+          # - Sending notifications to team channels

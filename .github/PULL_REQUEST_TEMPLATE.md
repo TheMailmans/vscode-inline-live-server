@@ -1,32 +1,68 @@
-## PR Type
+# Pull Request
 
-What kind of change does this PR introduce?
+## Description
 
-<!-- Please check the one that applies to this PR using "x". -->
+[Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.]
 
-```html
-[ ] Bugfix
-[ ] Feature
-[ ] Refactoring (no functional changes, no api changes)
-[ ] Documentation content changes
-[ ] Other: <!-- Please describe: -->
-```
+## Related Issue
 
-## What is the current behavior?
+[Fixes # (issue number)]
+[Closes # (issue number)]
 
-<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->
+## Type of Change
 
-Issue Number: N/A
+Please mark the options that are relevant:
 
-## What is the new behavior?
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Documentation update
+- [ ] Performance improvement
+- [ ] Code refactoring
+- [ ] Tests (adding missing tests or correcting existing tests)
 
-## Does this PR introduce a breaking change?
+## How Has This Been Tested?
 
-```text
-[ ] Yes
-[ ] No
-```
+[Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration.]
 
-<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->
+- [ ] Unit tests
+- [ ] Integration tests
+- [ ] Manual testing
+- [ ] End-to-end tests
 
-## Other information
+## Test Configuration
+
+- **VS Code Version**: [e.g., 1.74.0]
+- **OS**: [e.g., Windows 10, macOS 13.0, Ubuntu 22.04]
+- **Node.js Version**: [e.g., 18.15.0] (if applicable)
+
+## Screenshots
+
+[If applicable, add screenshots to help explain your changes]
+
+## Checklist
+
+- [ ] My code follows the project's coding standards
+- [ ] I have performed a self-review of my own code
+- [ ] I have commented my code, particularly in hard-to-understand areas
+- [ ] I have made corresponding changes to the documentation
+- [ ] My changes generate no new warnings
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New and existing unit tests pass locally with my changes
+- [ ] Any dependent changes have been merged and published in downstream modules
+
+## Additional Context
+
+[Add any other context or screenshots about the pull request here]
+
+## Breaking Changes
+
+[If this PR introduces breaking changes, please describe them here and explain why they were necessary]
+
+## Performance Impact
+
+[Describe any performance implications of your changes]
+
+---
+
+**Thank you for your contribution!** 🎉
