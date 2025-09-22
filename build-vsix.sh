@@ -33,7 +33,7 @@ fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
 
 # Package the extension
 echo "Packaging extension..."
-npx @vscode/vsce package --no-update-package-json --baseContentUrl file:// --baseImagesUrl file:// --out tbx-live-server-6.0.6.vsix
+npx @vscode/vsce package --no-update-package-json --baseContentUrl file:// --baseImagesUrl file:// --out tbx-live-server-6.0.7.vsix
 
 # Restore original files
 echo "Restoring original files..."
@@ -41,12 +41,12 @@ mv README.md.backup README.md
 mv package.json.backup package.json
 
 # Check if packaging succeeded
-if [ -f "tbx-live-server-6.0.6.vsix" ]; then
-    echo "SUCCESS: VSIX created at tbx-live-server-6.0.6.vsix"
-    ls -la tbx-live-server-6.0.6.vsix
+if [ -f "tbx-live-server-6.0.7.vsix" ]; then
+    echo "SUCCESS: VSIX created at tbx-live-server-6.0.7.vsix"
+    ls -la tbx-live-server-6.0.7.vsix
 
     # Verify the VSIX is valid (basic check)
-    file tbx-live-server-6.0.6.vsix
+    file tbx-live-server-6.0.7.vsix
 else
     echo "ERROR: VSIX packaging failed"
     exit 1
