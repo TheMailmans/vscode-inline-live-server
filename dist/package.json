@@ -683,6 +683,11 @@
     "url": "https://github.com/TheMailmans/vscode-inline-live-server/issues",
     "email": "themailmaninbox@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheMailmans/vscode-inline-live-server.git"
+  },
+  "homepage": "https://github.com/TheMailmans/vscode-inline-live-server#readme",
   "scripts": {
     "vscode:prepublish": "npm run prepare:live-server && webpack --mode production",
     "compile": "webpack --mode development",
