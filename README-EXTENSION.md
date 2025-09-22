@@ -2,9 +2,9 @@
 
 ![TBX Live Server icon](https://raw.githubusercontent.com/TheMailmans/vscode-inline-live-server/main/images/icon-256.png)
 
-[![VSCode Marketplace](https://img.shields.io/vscode-marketplace/v/thinkback.tbx-live-server.svg?style=flat-square&label=vscode%20marketplace)](https://marketplace.visualstudio.com/items?itemName=thinkback.tbx-live-server)
-[![Total Installs](https://img.shields.io/vscode-marketplace/d/thinkback.tbx-live-server.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=thinkback.tbx-live-server)
-[![Average Rating](https://img.shields.io/vscode-marketplace/r/thinkback.tbx-live-server.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=thinkback.tbx-live-server)
+[![VSCode Marketplace](https://img.shields.io/vscode-marketplace/v/Thinkback.tbx-live-server.svg?style=flat-square&label=vscode%20marketplace)](https://marketplace.visualstudio.com/items?itemName=Thinkback.tbx-live-server)
+[![Total Installs](https://img.shields.io/vscode-marketplace/d/Thinkback.tbx-live-server.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=Thinkback.tbx-live-server)
+[![Average Rating](https://img.shields.io/vscode-marketplace/r/Thinkback.tbx-live-server.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=Thinkback.tbx-live-server)
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/TheMailmans/vscode-inline-live-server/blob/main/LICENSE)
 [![GitHub Issues](https://img.shields.io/github/issues/TheMailmans/vscode-inline-live-server.svg?style=flat-square)](https://github.com/TheMailmans/vscode-inline-live-server/issues)
 [![GitHub Stars](https://img.shields.io/github/stars/TheMailmans/vscode-inline-live-server.svg?style=flat-square)](https://github.com/TheMailmans/vscode-inline-live-server)
