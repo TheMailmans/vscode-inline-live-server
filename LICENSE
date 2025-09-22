@@ -1,6 +1,8 @@
 MIT License
 
-Copyright (c) 2017-2022 Ritwick Dey
+Copyright (c) 2024 Tyler Mailman (TBX Development Team)
+
+Based on the original Live Server extension by Ritwick Dey (2017-2022)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,4 +24,6 @@ SOFTWARE.
 
 ---
 
-Modifications for the Inline Live Server extension © 2024 TBX Development Team. The original Live Server project by Ritwick Dey remains licensed under the MIT terms reproduced above.
+This extension is a significant enhancement and modernization of the original Live Server concept,
+featuring integrated webview preview, multi-server management, and advanced development capabilities.
+Original Live Server project by Ritwick Dey: https://github.com/ritwickdey/vscode-live-server

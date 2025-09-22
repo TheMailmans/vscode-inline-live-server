@@ -2,12 +2,12 @@
 
 ![TBX Live Server icon](https://raw.githubusercontent.com/TheMailmans/vscode-inline-live-server/main/images/icon-256.png)
 
-[![VSCode Marketplace](https://img.shields.io/vscode-marketplace/v/tbx.live-server.svg?style=flat-square&label=vscode%20marketplace)](https://marketplace.visualstudio.com/items?itemName=tbx.live-server)
-[![Total Installs](https://img.shields.io/vscode-marketplace/d/tbx.live-server.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=tbx.live-server)
-[![Average Rating](https://img.shields.io/vscode-marketplace/r/tbx.live-server.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=tbx.live-server)
-[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
-[![GitHub Issues](https://img.shields.io/github/issues/tbx/vscode-live-server.svg?style=flat-square)](https://github.com/tbx/vscode-live-server/issues)
-[![GitHub Stars](https://img.shields.io/github/stars/tbx/vscode-live-server.svg?style=flat-square)](https://github.com/tbx/vscode-live-server)
+[![VSCode Marketplace](https://img.shields.io/vscode-marketplace/v/tbx.tbx-live-server.svg?style=flat-square&label=vscode%20marketplace)](https://marketplace.visualstudio.com/items?itemName=tbx.tbx-live-server)
+[![Total Installs](https://img.shields.io/vscode-marketplace/d/tbx.tbx-live-server.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=tbx.tbx-live-server)
+[![Average Rating](https://img.shields.io/vscode-marketplace/r/tbx.tbx-live-server.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=tbx.tbx-live-server)
+[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/TheMailmans/vscode-inline-live-server/blob/main/LICENSE)
+[![GitHub Issues](https://img.shields.io/github/issues/TheMailmans/vscode-inline-live-server.svg?style=flat-square)](https://github.com/TheMailmans/vscode-inline-live-server/issues)
+[![GitHub Stars](https://img.shields.io/github/stars/TheMailmans/vscode-inline-live-server.svg?style=flat-square)](https://github.com/TheMailmans/vscode-inline-live-server)
 
 Professional live development server with integrated webview preview, multi-server management, and instant reload capabilities for modern web development in VS Code.
 

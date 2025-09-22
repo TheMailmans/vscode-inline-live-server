@@ -2,8 +2,8 @@
   "name": "tbx-live-server",
   "displayName": "TBX Live Server",
   "description": "Professional live development server with integrated webview preview, multi-server management, and instant reload capabilities for modern web development in VS Code.",
-  "version": "6.0.5",
-  "publisher": "TBX",
+  "version": "6.0.6",
+  "publisher": "tbx",
   "author": {
     "name": "Tyler Mailman (TBX Development Team)",
     "email": "themailmaninbox@gmail.com",
