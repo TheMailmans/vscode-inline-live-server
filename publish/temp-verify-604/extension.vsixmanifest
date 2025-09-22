@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+		<Metadata>
+			<Identity Language="en-US" Id="tbx-live-server" Version="6.0.4" Publisher="TBX" />
+			<DisplayName>TBX Live Server</DisplayName>
+			<Description xml:space="preserve">Professional live development server with integrated webview preview, multi-server management, and instant reload capabilities for modern web development in VS Code.</Description>
+			<Tags>live server,live preview,live reload,webview,browser preview,development server,html preview,mobile testing,debugging,chrome debugging,side-by-side,integrated preview,web development,frontend,responsive design,cross-browser,multi-root workspace,typescript,javascript,css,html,keybindings,__sponsor_extension</Tags>
+			<Categories>Debuggers,Other</Categories>
+			<GalleryFlags>Public</GalleryFlags>
+			<Badges><Badge Link="https://marketplace.visualstudio.com/items?itemName=tbx.live-server" ImgUri="https://img.shields.io/badge/dynamic/json?color=blue&amp;label=installs&amp;query=%24.installs&amp;suffix=%20installs&amp;url=https%3A%2F%2Fmarketplace.visualstudio.com%2Fapi%2F1.0%2Fstats%2Fextensions%2Ftbx-live-server" Description="Extension Installs" />
+<Badge Link="https://marketplace.visualstudio.com/items?itemName=tbx.live-server" ImgUri="https://img.shields.io/badge/dynamic/json?color=green&amp;label=rating&amp;query=%24.rating&amp;suffix=%2F5%20stars&amp;url=https%3A%2F%2Fmarketplace.visualstudio.com%2Fapi%2F1.0%2Fstats%2Fextensions%2Ftbx-live-server" Description="Extension Rating" /></Badges>
+			<Properties>
+				<Property Id="Microsoft.VisualStudio.Code.Engine" Value="^1.74.0" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionDependencies" Value="" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionPack" Value="" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionKind" Value="workspace" />
+				<Property Id="Microsoft.VisualStudio.Code.LocalizedLanguages" Value="" />
+				<Property Id="Microsoft.VisualStudio.Code.EnabledApiProposals" Value="" />
+				
+				<Property Id="Microsoft.VisualStudio.Code.ExecutesCode" Value="true" />
+				<Property Id="Microsoft.VisualStudio.Code.SponsorLink" Value="https://buymeacoffee.com/th3mailman" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="https://github.com/TheMailmans/vscode-inline-live-server.git" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.Getstarted" Value="https://github.com/TheMailmans/vscode-inline-live-server.git" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.GitHub" Value="https://github.com/TheMailmans/vscode-inline-live-server.git" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.Support" Value="https://github.com/TheMailmans/vscode-inline-live-server/issues" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.Learn" Value="https://github.com/TheMailmans/vscode-inline-live-server#readme" />
+				<Property Id="Microsoft.VisualStudio.Services.Branding.Color" Value="#007ACC" />
+				<Property Id="Microsoft.VisualStudio.Services.Branding.Theme" Value="dark" />
+				<Property Id="Microsoft.VisualStudio.Services.GitHubFlavoredMarkdown" Value="true" />
+				<Property Id="Microsoft.VisualStudio.Services.Content.Pricing" Value="Free"/>
+
+				<Property Id="Microsoft.VisualStudio.Services.EnableMarketplaceQnA" Value="true" />
+				
+			</Properties>
+			<License>extension/LICENSE.txt</License>
+			<Icon>extension/images/icon.png</Icon>
+		</Metadata>
+		<Installation>
+			<InstallationTarget Id="Microsoft.VisualStudio.Code"/>
+		</Installation>
+		<Dependencies/>
+		<Assets>
+			<Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
+			<Asset Type="Microsoft.VisualStudio.Services.Content.Details" Path="extension/readme.md" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Services.Content.Changelog" Path="extension/changelog.md" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Services.Content.License" Path="extension/LICENSE.txt" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Services.Icons.Default" Path="extension/images/icon.png" Addressable="true" />
+		</Assets>
+	</PackageManifest>

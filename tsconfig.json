@@ -1,27 +1,39 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6",
-        "skipLibCheck": true,
-        "outDir": "out",
-        "lib": [
-            "es6",
-            "DOM"
-        ],
-        "sourceMap": true,
-        "esModuleInterop": true,
-        "rootDir": ".",
-        "types": [
-            "node",
-            "webdriverio/async",
-            "@wdio/mocha-framework",
-            "expect-webdriverio",
-            "wdio-vscode-service"
-        ]
-    },
-    "exclude": [
-        "node_modules",
-        ".vscode-test",
-        "_site"
-    ]
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2020",
+    "lib": [
+      "ES2020"
+    ],
+    "outDir": "out",
+    "rootDir": "src",
+    "sourceMap": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "removeComments": false,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "exactOptionalPropertyTypes": false,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "noUncheckedIndexedAccess": false
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "out",
+    "dist",
+    "**/*.test.ts"
+  ]
 }

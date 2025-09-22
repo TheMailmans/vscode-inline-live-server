@@ -1,6 +1,6 @@
 # TBX Live Server
 
-![TBX Live Server icon](images/icon-256.png)
+![TBX Live Server icon](https://raw.githubusercontent.com/TheMailmans/vscode-inline-live-server/main/images/icon-256.png)
 
 [![VSCode Marketplace](https://img.shields.io/vscode-marketplace/v/tbx.live-server.svg?style=flat-square&label=vscode%20marketplace)](https://marketplace.visualstudio.com/items?itemName=tbx.live-server)
 [![Total Installs](https://img.shields.io/vscode-marketplace/d/tbx.live-server.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=tbx.live-server)
@@ -11,11 +11,11 @@
 
 Professional live development server with integrated webview preview, multi-server management, and instant reload capabilities for modern web development in VS Code.
 
-![TBX Live Server hero screenshot showing side-by-side editor and preview](images/Screenshot/hero-preview.png)
+![TBX Live Server hero screenshot showing side-by-side editor and preview](https://raw.githubusercontent.com/TheMailmans/vscode-inline-live-server/main/images/Screenshot/hero-preview.png)
 
 ## ✨ Key Features
 
-![TBX Live Server animated demo showing multi-server workflow](images/Screenshot/AnimatedPreview.gif)
+![TBX Live Server animated demo showing multi-server workflow](https://raw.githubusercontent.com/TheMailmans/vscode-inline-live-server/main/images/Screenshot/AnimatedPreview.gif)
 
 ### 🚀 **Integrated Webview Preview**
 
@@ -26,7 +26,7 @@ Professional live development server with integrated webview preview, multi-serv
 
 ### 🔄 **Multi-Server Management**
 
-![Multi-server dropdown inside the TBX Live Server webview](images/Screenshot/multi-server-dropdown.png)
+![Multi-server dropdown inside the TBX Live Server webview](https://raw.githubusercontent.com/TheMailmans/vscode-inline-live-server/main/images/Screenshot/multi-server-dropdown.png)
 
 - **Multiple servers**: Run several projects simultaneously
 - **Easy switching**: Quick dropdown to switch between active servers
@@ -35,7 +35,7 @@ Professional live development server with integrated webview preview, multi-serv
 
 ### 📊 **Enhanced Status Bar**
 
-![Status bar indicator displaying two running servers](images/Screenshot/status-bar.png)
+![Status bar indicator displaying two running servers](https://raw.githubusercontent.com/TheMailmans/vscode-inline-live-server/main/images/Screenshot/status-bar.png)
 
 - **Live indicators**: Real-time server status in the status bar
 - **Quick actions**: Start/stop servers with one click
@@ -44,7 +44,7 @@ Professional live development server with integrated webview preview, multi-serv
 
 ### ⌨️ **Command Palette Integration**
 
-![Command Palette commands for TBX Live Server](images/Screenshot/command-palette.png)
+![Command Palette commands for TBX Live Server](https://raw.githubusercontent.com/TheMailmans/vscode-inline-live-server/main/images/Screenshot/command-palette.png)
 
 - **Quick commands**: Access all features via Command Palette
 - **Keyboard shortcuts**: Efficient workflow with hotkeys

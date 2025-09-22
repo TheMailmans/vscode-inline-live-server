@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBX Live Server</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            background-color: #1e1e1e;
+            color: #cccccc;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .header {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            grid-template-areas: "controls address-bar status-info";
+            align-items: center;
+            padding: 10px 16px;
+            background-color: #2d2d30;
+            border-bottom: 1px solid #3c3c3c;
+            min-height: 48px;
+            gap: 12px;
+        }
+
+        .controls {
+            grid-area: controls;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .address-container {
+            grid-area: address-bar;
+            display: flex;
+            align-items: center;
+            background-color: #3c3c3c;
+            border: 1px solid #555;
+            border-radius: 4px;
+            overflow: hidden;
+            min-width: 200px;
+            max-width: 600px;
+        }
+
+        .address-container:focus-within {
+            border-color: #007acc;
+            box-shadow: 0 0 0 1px #007acc;
+        }
+
+        .address-bar {
+            flex: 1;
+            padding: 8px 12px;
+            background-color: transparent;
+            color: #cccccc;
+            border: none;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .address-bar::placeholder {
+            color: #888;
+        }
+
+        .status-container {
+            grid-area: status-info;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .status {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .error {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 14px;
+            color: #f48771;
+            background-color: #1e1e1e;
+        }
+
+        .iframe-container {
+            flex: 1;
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #1e1e1e;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .refresh-btn {
+            background-color: #0e639c;
+            color: #ffffff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 13px;
+            min-width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.1s ease;
+        }
+
+        .refresh-btn:hover {
+            background-color: #1177bb;
+        }
+
+        .refresh-btn:active {
+            background-color: #0d5a94;
+        }
+
+        /* Responsive design for different VS Code panel sizes */
+        @media (max-width: 800px) {
+            .header {
+                grid-template-columns: auto 1fr;
+                grid-template-areas:
+                    "controls status-info"
+                    "address-bar address-bar";
+                gap: 8px;
+                padding: 8px 12px;
+            }
+
+            .address-container {
+                margin-top: 4px;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .header {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "controls"
+                    "address-bar"
+                    "status-info";
+                gap: 6px;
+                padding: 8px;
+            }
+
+            .controls {
+                justify-content: center;
+            }
+
+            .status-container {
+                justify-content: center;
+                font-size: 11px;
+            }
+
+            .refresh-btn {
+                min-width: 26px;
+                height: 26px;
+                font-size: 12px;
+            }
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-left: 8px;
+        }
+
+        .status-live {
+            background-color: #4caf50;
+        }
+
+        .status-offline {
+            background-color: #f44336;
+        }
+
+        .status-loading {
+            background-color: #ff9800;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: var(--vscode-descriptionForeground);
+            opacity: 0.6;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .footer a {
+            color: var(--vscode-textLink-foreground);
+            text-decoration: none;
+            pointer-events: auto;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="controls">
+                <button class="refresh-btn" id="refreshBtn" title="Refresh">↻</button>
+                <button class="refresh-btn" id="externalBtn" title="Open in External Browser">↗</button>
+            </div>
+            <div class="address-container">
+                <input type="text" class="address-bar" id="addressBar" readonly placeholder="http://localhost:5500/">
+            </div>
+            <div class="status-container">
+                <div class="status" id="statusText">Ready</div>
+                <div class="status-indicator status-offline" id="statusIndicator"></div>
+            </div>
+        </div>
+        <div class="iframe-container">
+            <div class="loading" id="loading">
+                <div>Loading TBX Live Server...</div>
+            </div>
+            <div class="error hidden" id="error">
+                <div>Failed to load preview. Please check if the server is running.</div>
+            </div>
+            <iframe id="previewFrame" class="hidden" sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-popups"></iframe>
+        </div>
+        <div class="footer">
+            <span>Enjoying TBX Live Server? <a href="https://buymeacoffee.com/th3mailman" target="_blank">☕ Buy me a coffee</a></span>
+        </div>
+    </div>
+
+    <script>
+        // This is a standalone HTML file for reference
+        // In the actual implementation, this content is embedded in the TypeScript code
+        // and uses VS Code's acquireVsCodeApi() for message passing
+
+        const refreshBtn = document.getElementById('refreshBtn');
+        const externalBtn = document.getElementById('externalBtn');
+        const addressBar = document.getElementById('addressBar');
+        const statusText = document.getElementById('statusText');
+        const statusIndicator = document.getElementById('statusIndicator');
+        const loading = document.getElementById('loading');
+        const error = document.getElementById('error');
+        const previewFrame = document.getElementById('previewFrame');
+
+        let currentUrl = '';
+
+        function updateStatus(message, status = 'ready') {
+            statusText.textContent = message;
+
+            statusIndicator.className = 'status-indicator';
+            switch (status) {
+                case 'live':
+                    statusIndicator.classList.add('status-live');
+                    break;
+                case 'offline':
+                    statusIndicator.classList.add('status-offline');
+                    break;
+                case 'loading':
+                    statusIndicator.classList.add('status-loading');
+                    break;
+                default:
+                    statusIndicator.className = 'status-indicator';
+            }
+        }
+
+        function showLoading() {
+            loading.classList.remove('hidden');
+            error.classList.add('hidden');
+            previewFrame.classList.add('hidden');
+        }
+
+        function showError(message) {
+            loading.classList.add('hidden');
+            error.classList.remove('hidden');
+            previewFrame.classList.add('hidden');
+            error.querySelector('div').textContent = message;
+            updateStatus('Error', 'offline');
+        }
+
+        function showPreview() {
+            loading.classList.add('hidden');
+            error.classList.add('hidden');
+            previewFrame.classList.remove('hidden');
+            updateStatus('Live Preview', 'live');
+        }
+
+        function loadPreview(url) {
+            if (!url) {
+                showError('No URL provided');
+                return;
+            }
+
+            currentUrl = url;
+            addressBar.value = url;
+            showLoading();
+            updateStatus('Loading...', 'loading');
+
+            try {
+                previewFrame.src = url;
+                previewFrame.onload = () => {
+                    showPreview();
+                };
+                previewFrame.onerror = () => {
+                    showError('Failed to load preview');
+                };
+            } catch (err) {
+                showError('Invalid URL format');
+            }
+        }
+
+        // Event listeners
+        refreshBtn.addEventListener('click', () => {
+            if (currentUrl) {
+                loadPreview(currentUrl);
+            }
+        });
+
+        externalBtn.addEventListener('click', () => {
+            if (currentUrl) {
+                window.open(currentUrl, '_blank');
+            }
+        });
+
+        // Initialize
+        updateStatus('Ready');
+
+        // Example usage (this would normally come from VS Code extension messages)
+        // loadPreview('http://localhost:5500/index.html');
+    </script>
+</body>
+</html>
