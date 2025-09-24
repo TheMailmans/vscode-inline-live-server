@@ -2,7 +2,7 @@
   "name": "tbx-live-server",
   "displayName": "Inline Live Server",
   "description": "Professional live development server with integrated webview preview, multi-server management, and instant reload capabilities for modern web development in VS Code.",
-  "version": "6.0.7",
+  "version": "6.0.9",
   "publisher": "thinkback",
   "author": {
     "name": "Tyler Mailman (TBX Development Team)",
@@ -58,142 +58,142 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.liveServer.goOffline",
-        "title": "Stop TBX Live Server",
-        "category": "TBX Live Server"
+        "command": "extension.inlineLiveServer.goOffline",
+        "title": "Stop Inline Live Server",
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.goOnline",
-        "title": "Open with TBX Live Server",
-        "category": "TBX Live Server"
+        "command": "extension.inlineLiveServer.goOnline",
+        "title": "Open with Inline Live Server",
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.showFileBrowser",
+        "command": "extension.inlineLiveServer.showFileBrowser",
         "title": "Show File Browser",
-        "category": "TBX Live Server"
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.changeWorkspace",
-        "title": "Change TBX Live Server Workspace",
-        "category": "TBX Live Server"
+        "command": "extension.inlineLiveServer.changeWorkspace",
+        "title": "Change Inline Live Server Workspace",
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.startWebview",
+        "command": "extension.inlineLiveServer.startWebview",
         "title": "Start Webview",
-        "category": "TBX Live Server"
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.navigateHome",
+        "command": "extension.inlineLiveServer.navigateHome",
         "title": "Navigate Home",
-        "category": "TBX Live Server"
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.zoomIn",
+        "command": "extension.inlineLiveServer.zoomIn",
         "title": "Zoom In",
-        "category": "TBX Live Server"
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.zoomOut",
+        "command": "extension.inlineLiveServer.zoomOut",
         "title": "Zoom Out",
-        "category": "TBX Live Server"
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.resetZoom",
+        "command": "extension.inlineLiveServer.resetZoom",
         "title": "Reset Zoom",
-        "category": "TBX Live Server"
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.toggleSplitView",
+        "command": "extension.inlineLiveServer.toggleSplitView",
         "title": "Toggle Split View",
-        "category": "TBX Live Server"
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.toggleFullScreen",
+        "command": "extension.inlineLiveServer.toggleFullScreen",
         "title": "Toggle Full Screen",
-        "category": "TBX Live Server"
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.openDevTools",
+        "command": "extension.inlineLiveServer.openDevTools",
         "title": "Open Developer Tools",
-        "category": "TBX Live Server"
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.inspectElement",
+        "command": "extension.inlineLiveServer.inspectElement",
         "title": "Inspect Element",
-        "category": "TBX Live Server"
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.viewSource",
+        "command": "extension.inlineLiveServer.viewSource",
         "title": "View Source",
-        "category": "TBX Live Server"
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.clearHistory",
+        "command": "extension.inlineLiveServer.clearHistory",
         "title": "Clear Navigation History",
-        "category": "TBX Live Server"
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.saveState",
+        "command": "extension.inlineLiveServer.saveState",
         "title": "Save Navigation State",
-        "category": "TBX Live Server"
+        "category": "Inline Live Server"
       },
       {
-        "command": "extension.liveServer.loadState",
+        "command": "extension.inlineLiveServer.loadState",
         "title": "Load Navigation State",
-        "category": "TBX Live Server"
+        "category": "Inline Live Server"
       }
     ],
     "keybindings": [
       {
-        "command": "extension.liveServer.goOffline",
+        "command": "extension.inlineLiveServer.goOffline",
         "key": "alt+L alt+C",
         "when": "editorTextFocus",
         "mac": "cmd+L cmd+C"
       },
       {
-        "command": "extension.liveServer.goOnline",
+        "command": "extension.inlineLiveServer.goOnline",
         "key": "alt+L alt+O",
         "when": "editorTextFocus",
         "mac": "cmd+L cmd+O"
       },
       {
-        "command": "extension.liveServer.startWebview",
+        "command": "extension.inlineLiveServer.startWebview",
         "key": "alt+L alt+W",
         "when": "editorTextFocus",
         "mac": "cmd+L cmd+W"
       },
       {
-        "command": "extension.liveServer.navigateHome",
+        "command": "extension.inlineLiveServer.navigateHome",
         "key": "alt+L alt+H",
         "when": "editorTextFocus",
         "mac": "cmd+L cmd+H"
       },
       {
-        "command": "extension.liveServer.zoomIn",
+        "command": "extension.inlineLiveServer.zoomIn",
         "key": "alt+L alt+=",
         "when": "editorTextFocus",
         "mac": "cmd+L cmd+="
       },
       {
-        "command": "extension.liveServer.zoomOut",
+        "command": "extension.inlineLiveServer.zoomOut",
         "key": "alt+L alt+-",
         "when": "editorTextFocus",
         "mac": "cmd+L cmd+-"
       },
       {
-        "command": "extension.liveServer.resetZoom",
+        "command": "extension.inlineLiveServer.resetZoom",
         "key": "alt+L alt+0",
         "when": "editorTextFocus",
         "mac": "cmd+L cmd+0"
       },
       {
-        "command": "extension.liveServer.toggleFullScreen",
+        "command": "extension.inlineLiveServer.toggleFullScreen",
         "key": "alt+L alt+F",
         "when": "editorTextFocus",
         "mac": "cmd+L cmd+F"
       },
       {
-        "command": "extension.liveServer.openDevTools",
+        "command": "extension.inlineLiveServer.openDevTools",
         "key": "alt+L alt+D",
         "when": "editorTextFocus",
         "mac": "cmd+L cmd+D"
@@ -202,30 +202,30 @@
     "menus": {
       "editor/context": [
         {
-          "command": "extension.liveServer.goOnline",
-          "group": "myGrp@tbxLivePreview",
+          "command": "extension.inlineLiveServer.goOnline",
+          "group": "myGrp@inlineLivePreview",
           "when": "resourceLangId == html"
         },
         {
-          "command": "extension.liveServer.goOffline",
-          "group": "myGrp@tbxLivePreview",
+          "command": "extension.inlineLiveServer.goOffline",
+          "group": "myGrp@inlineLivePreview",
           "when": "resourceLangId == html"
         },
         {
-          "command": "extension.liveServer.goOnline",
-          "group": "myGrp@tbxLivePreview",
+          "command": "extension.inlineLiveServer.goOnline",
+          "group": "myGrp@inlineLivePreview",
           "when": "resourceLangId == xml"
         }
       ],
       "explorer/context": [
         {
-          "command": "extension.liveServer.goOnline",
-          "group": "navigation@-TBXLivePreview",
+          "command": "extension.inlineLiveServer.goOnline",
+          "group": "navigation@-InlineLivePreview",
           "when": "resourceLangId == html"
         },
         {
-          "command": "extension.liveServer.goOnline",
-          "group": "navigation@-TBXLivePreview",
+          "command": "extension.inlineLiveServer.goOnline",
+          "group": "navigation@-InlineLivePreview",
           "when": "resourceLangId == xml"
         }
       ]
@@ -435,7 +435,7 @@
         }
       },
       {
-        "title": "TBX Live Server Config",
+        "title": "Inline Live Server Config",
         "properties": {
           "tbxLivePreview.webviewPanel.defaultView": {
             "type": "string",
@@ -662,7 +662,7 @@
     },
     {
       "path": "images/Screenshot/command-palette.png",
-      "label": "Command Palette entries for TBX Live Server"
+      "label": "Command Palette entries for Inline Live Server"
     }
   ],
   "pricing": "Free",

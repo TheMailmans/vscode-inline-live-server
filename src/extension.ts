@@ -31,55 +31,55 @@ export function activate(context: vscode.ExtensionContext) {
 
   // Register commands
   const commands = [
-    vscode.commands.registerCommand('extension.liveServer.goOffline', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.goOffline', () => {
       commandManager.executeCommand('goOffline');
     }),
-    vscode.commands.registerCommand('extension.liveServer.goOnline', (uri?: vscode.Uri) => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.goOnline', (uri?: vscode.Uri) => {
       commandManager.executeCommand('goOnline', uri);
     }),
-    vscode.commands.registerCommand('extension.liveServer.showFileBrowser', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.showFileBrowser', () => {
       commandManager.executeCommand('showFileBrowser');
     }),
-    vscode.commands.registerCommand('extension.liveServer.changeWorkspace', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.changeWorkspace', () => {
       commandManager.executeCommand('changeWorkspace');
     }),
-    vscode.commands.registerCommand('extension.liveServer.startWebview', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.startWebview', () => {
       commandManager.executeCommand('startWebview');
     }),
-    vscode.commands.registerCommand('extension.liveServer.navigateHome', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.navigateHome', () => {
       commandManager.executeCommand('navigateHome');
     }),
-    vscode.commands.registerCommand('extension.liveServer.zoomIn', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.zoomIn', () => {
       commandManager.executeCommand('zoomIn');
     }),
-    vscode.commands.registerCommand('extension.liveServer.zoomOut', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.zoomOut', () => {
       commandManager.executeCommand('zoomOut');
     }),
-    vscode.commands.registerCommand('extension.liveServer.resetZoom', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.resetZoom', () => {
       commandManager.executeCommand('resetZoom');
     }),
-    vscode.commands.registerCommand('extension.liveServer.toggleSplitView', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.toggleSplitView', () => {
       commandManager.executeCommand('toggleSplitView');
     }),
-    vscode.commands.registerCommand('extension.liveServer.toggleFullScreen', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.toggleFullScreen', () => {
       commandManager.executeCommand('toggleFullScreen');
     }),
-    vscode.commands.registerCommand('extension.liveServer.openDevTools', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.openDevTools', () => {
       commandManager.executeCommand('openDevTools');
     }),
-    vscode.commands.registerCommand('extension.liveServer.inspectElement', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.inspectElement', () => {
       commandManager.executeCommand('inspectElement');
     }),
-    vscode.commands.registerCommand('extension.liveServer.viewSource', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.viewSource', () => {
       commandManager.executeCommand('viewSource');
     }),
-    vscode.commands.registerCommand('extension.liveServer.clearHistory', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.clearHistory', () => {
       commandManager.executeCommand('clearHistory');
     }),
-    vscode.commands.registerCommand('extension.liveServer.saveState', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.saveState', () => {
       commandManager.executeCommand('saveState');
     }),
-    vscode.commands.registerCommand('extension.liveServer.loadState', () => {
+    vscode.commands.registerCommand('extension.inlineLiveServer.loadState', () => {
       commandManager.executeCommand('loadState');
     })
   ];

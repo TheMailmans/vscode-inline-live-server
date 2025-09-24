@@ -115,7 +115,7 @@ export class CommandManagerEnhanced {
     console.log('[CommandManager] Stopping server...');
 
     if (this.servers.length === 0) {
-      vscode.window.showInformationMessage('TBX Live Server: No servers are currently running');
+      vscode.window.showInformationMessage('Inline Live Server: No servers are currently running');
       return;
     }
 
@@ -233,11 +233,11 @@ export class CommandManagerEnhanced {
 
       // Show success message with occasional support mention
       const messages = [
-        `TBX Live Server: Server started for ${workspaceFolder.name} on port ${port}`,
-        `TBX Live Server: Server started for ${workspaceFolder.name} on port ${port}`,
-        `TBX Live Server: Server started for ${workspaceFolder.name} on port ${port}`,
-        `TBX Live Server: Server started for ${workspaceFolder.name} on port ${port}`,
-        `TBX Live Server: Server started for ${workspaceFolder.name} on port ${port} • Enjoying the extension? ☕ Support development: https://buymeacoffee.com/th3mailman`
+        `Inline Live Server: Server started for ${workspaceFolder.name} on port ${port}`,
+        `Inline Live Server: Server started for ${workspaceFolder.name} on port ${port}`,
+        `Inline Live Server: Server started for ${workspaceFolder.name} on port ${port}`,
+        `Inline Live Server: Server started for ${workspaceFolder.name} on port ${port}`,
+        `Inline Live Server: Server started for ${workspaceFolder.name} on port ${port} • Enjoying the extension? ☕ Support development: https://buymeacoffee.com/th3mailman`
       ];
       const randomMessage = messages[Math.floor(Math.random() * messages.length)];
       vscode.window.showInformationMessage(randomMessage);
@@ -425,7 +425,7 @@ export class CommandManagerEnhanced {
             if (selectedServerId) {
               this.stopServers([selectedServerId]);
             } else {
-              vscode.window.showInformationMessage('TBX Live Server: No server selected to stop');
+              vscode.window.showInformationMessage('Inline Live Server: No server selected to stop');
             }
             break;
           case 'openInBrowser':
@@ -435,7 +435,7 @@ export class CommandManagerEnhanced {
                 const uri = vscode.Uri.parse(`http://127.0.0.1:${server.port}`);
                 vscode.env.openExternal(uri);
               } else {
-                vscode.window.showInformationMessage('TBX Live Server: Server is not running');
+                vscode.window.showInformationMessage('Inline Live Server: Server is not running');
               }
             }
             break;

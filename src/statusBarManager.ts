@@ -14,7 +14,7 @@ export class StatusBarManager {
   }
 
   public initialize(): void {
-    this.statusBarItem.command = 'extension.liveServer.showFileBrowser';
+    this.statusBarItem.command = 'extension.inlineLiveServer.showFileBrowser';
     this.updateServerState(this.serverState);
     this.statusBarItem.show();
   }
@@ -24,28 +24,28 @@ export class StatusBarManager {
 
     switch (state) {
       case 'stopped':
-        this.statusBarItem.text = '$(circle-slash) TBX Live Server';
-        this.statusBarItem.tooltip = 'TBX Live Server - Click to browse files';
-        this.statusBarItem.command = 'extension.liveServer.showFileBrowser';
+        this.statusBarItem.text = '$(circle-slash) Inline Live Server';
+        this.statusBarItem.tooltip = 'Inline Live Server - Click to browse files';
+        this.statusBarItem.command = 'extension.inlineLiveServer.showFileBrowser';
         this.statusBarItem.backgroundColor = undefined;
         break;
       case 'running':
         if (runningCount > 1) {
-          this.statusBarItem.text = `$(broadcast) TBX Live Server (${runningCount})`;
-          this.statusBarItem.tooltip = `${runningCount} TBX Live Server servers running`;
+          this.statusBarItem.text = `$(broadcast) Inline Live Server (${runningCount})`;
+          this.statusBarItem.tooltip = `${runningCount} Inline Live Server servers running`;
         } else {
-          this.statusBarItem.text = '$(circle-filled) TBX Live Server';
-          this.statusBarItem.tooltip = 'TBX Live Server - Server running';
+          this.statusBarItem.text = '$(circle-filled) Inline Live Server';
+          this.statusBarItem.tooltip = 'Inline Live Server - Server running';
         }
-        this.statusBarItem.command = 'extension.liveServer.goOffline';
+        this.statusBarItem.command = 'extension.inlineLiveServer.goOffline';
         this.statusBarItem.backgroundColor = new vscode.ThemeColor(
           'statusBarItem.prominentBackground'
         );
         break;
       case 'error':
-        this.statusBarItem.text = '$(error) TBX Live Server';
-        this.statusBarItem.tooltip = 'TBX Live Server - Server error, click to browse files';
-        this.statusBarItem.command = 'extension.liveServer.showFileBrowser';
+        this.statusBarItem.text = '$(error) Inline Live Server';
+        this.statusBarItem.tooltip = 'Inline Live Server - Server error, click to browse files';
+        this.statusBarItem.command = 'extension.inlineLiveServer.showFileBrowser';
         this.statusBarItem.backgroundColor = new vscode.ThemeColor(
           'statusBarItem.errorBackground'
         );

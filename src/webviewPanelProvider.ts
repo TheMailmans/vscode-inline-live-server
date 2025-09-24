@@ -67,7 +67,7 @@ export class WebviewPanelProvider implements vscode.WebviewPanelSerializer {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TBX Live Server</title>
+    <title>Inline Live Server</title>
     <style>
         body {
             margin: 0;
@@ -173,7 +173,7 @@ export class WebviewPanelProvider implements vscode.WebviewPanelSerializer {
             <button onclick="toggleDevTools()">Dev Tools</button>
         </div>
         <div class="content" id="content">
-            <p>TBX Live Server Panel</p>
+            <p>Inline Live Server Panel</p>
             <p>Server will start when you open a file or use the command palette.</p>
         </div>
         <div class="status-bar" id="status-bar">
@@ -234,13 +234,13 @@ export class WebviewPanelProvider implements vscode.WebviewPanelSerializer {
   private handleWebviewMessage(message: any, panel: vscode.WebviewPanel): void {
     switch (message.type) {
       case 'navigateHome':
-        vscode.commands.executeCommand('extension.liveServer.navigateHome');
+        vscode.commands.executeCommand('extension.inlineLiveServer.navigateHome');
         break;
       case 'refresh':
-        vscode.commands.executeCommand('extension.liveServer.goOnline');
+        vscode.commands.executeCommand('extension.inlineLiveServer.goOnline');
         break;
       case 'toggleDevTools':
-        vscode.commands.executeCommand('extension.liveServer.openDevTools');
+        vscode.commands.executeCommand('extension.inlineLiveServer.openDevTools');
         break;
       case 'navigate':
         if (message.url) {

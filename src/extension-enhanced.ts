@@ -41,72 +41,72 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Register commands with enhanced logging
     const commands = [
-      vscode.commands.registerCommand('extension.liveServer.goOffline', () => {
-        console.log('[Extension] Executing command: extension.liveServer.goOffline');
+      vscode.commands.registerCommand('extension.inlineLiveServer.goOffline', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.goOffline');
         commandManager.executeCommand('goOffline');
       }),
-      vscode.commands.registerCommand('extension.liveServer.goOnline', (uri?: vscode.Uri) => {
-        console.log('[Extension] Executing command: extension.liveServer.goOnline', uri ? `with URI: ${uri.fsPath}` : 'without URI');
+      vscode.commands.registerCommand('extension.inlineLiveServer.goOnline', (uri?: vscode.Uri) => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.goOnline', uri ? `with URI: ${uri.fsPath}` : 'without URI');
         commandManager.executeCommand('goOnline', uri);
       }),
-      vscode.commands.registerCommand('extension.liveServer.showFileBrowser', () => {
-        console.log('[Extension] Executing command: extension.liveServer.showFileBrowser');
+      vscode.commands.registerCommand('extension.inlineLiveServer.showFileBrowser', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.showFileBrowser');
         commandManager.executeCommand('showFileBrowser');
       }),
-      vscode.commands.registerCommand('extension.liveServer.changeWorkspace', () => {
-        console.log('[Extension] Executing command: extension.liveServer.changeWorkspace');
+      vscode.commands.registerCommand('extension.inlineLiveServer.changeWorkspace', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.changeWorkspace');
         commandManager.executeCommand('changeWorkspace');
       }),
-      vscode.commands.registerCommand('extension.liveServer.startWebview', () => {
-        console.log('[Extension] Executing command: extension.liveServer.startWebview');
+      vscode.commands.registerCommand('extension.inlineLiveServer.startWebview', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.startWebview');
         commandManager.executeCommand('startWebview');
       }),
-      vscode.commands.registerCommand('extension.liveServer.navigateHome', () => {
-        console.log('[Extension] Executing command: extension.liveServer.navigateHome');
+      vscode.commands.registerCommand('extension.inlineLiveServer.navigateHome', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.navigateHome');
         commandManager.executeCommand('navigateHome');
       }),
-      vscode.commands.registerCommand('extension.liveServer.zoomIn', () => {
-        console.log('[Extension] Executing command: extension.liveServer.zoomIn');
+      vscode.commands.registerCommand('extension.inlineLiveServer.zoomIn', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.zoomIn');
         commandManager.executeCommand('zoomIn');
       }),
-      vscode.commands.registerCommand('extension.liveServer.zoomOut', () => {
-        console.log('[Extension] Executing command: extension.liveServer.zoomOut');
+      vscode.commands.registerCommand('extension.inlineLiveServer.zoomOut', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.zoomOut');
         commandManager.executeCommand('zoomOut');
       }),
-      vscode.commands.registerCommand('extension.liveServer.resetZoom', () => {
-        console.log('[Extension] Executing command: extension.liveServer.resetZoom');
+      vscode.commands.registerCommand('extension.inlineLiveServer.resetZoom', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.resetZoom');
         commandManager.executeCommand('resetZoom');
       }),
-      vscode.commands.registerCommand('extension.liveServer.toggleSplitView', () => {
-        console.log('[Extension] Executing command: extension.liveServer.toggleSplitView');
+      vscode.commands.registerCommand('extension.inlineLiveServer.toggleSplitView', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.toggleSplitView');
         commandManager.executeCommand('toggleSplitView');
       }),
-      vscode.commands.registerCommand('extension.liveServer.toggleFullScreen', () => {
-        console.log('[Extension] Executing command: extension.liveServer.toggleFullScreen');
+      vscode.commands.registerCommand('extension.inlineLiveServer.toggleFullScreen', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.toggleFullScreen');
         commandManager.executeCommand('toggleFullScreen');
       }),
-      vscode.commands.registerCommand('extension.liveServer.openDevTools', () => {
-        console.log('[Extension] Executing command: extension.liveServer.openDevTools');
+      vscode.commands.registerCommand('extension.inlineLiveServer.openDevTools', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.openDevTools');
         commandManager.executeCommand('openDevTools');
       }),
-      vscode.commands.registerCommand('extension.liveServer.inspectElement', () => {
-        console.log('[Extension] Executing command: extension.liveServer.inspectElement');
+      vscode.commands.registerCommand('extension.inlineLiveServer.inspectElement', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.inspectElement');
         commandManager.executeCommand('inspectElement');
       }),
-      vscode.commands.registerCommand('extension.liveServer.viewSource', () => {
-        console.log('[Extension] Executing command: extension.liveServer.viewSource');
+      vscode.commands.registerCommand('extension.inlineLiveServer.viewSource', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.viewSource');
         commandManager.executeCommand('viewSource');
       }),
-      vscode.commands.registerCommand('extension.liveServer.clearHistory', () => {
-        console.log('[Extension] Executing command: extension.liveServer.clearHistory');
+      vscode.commands.registerCommand('extension.inlineLiveServer.clearHistory', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.clearHistory');
         commandManager.executeCommand('clearHistory');
       }),
-      vscode.commands.registerCommand('extension.liveServer.saveState', () => {
-        console.log('[Extension] Executing command: extension.liveServer.saveState');
+      vscode.commands.registerCommand('extension.inlineLiveServer.saveState', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.saveState');
         commandManager.executeCommand('saveState');
       }),
-      vscode.commands.registerCommand('extension.liveServer.loadState', () => {
-        console.log('[Extension] Executing command: extension.liveServer.loadState');
+      vscode.commands.registerCommand('extension.inlineLiveServer.loadState', () => {
+        console.log('[Extension] Executing command: extension.inlineLiveServer.loadState');
         commandManager.executeCommand('loadState');
       })
     ];

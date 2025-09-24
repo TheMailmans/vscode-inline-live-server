@@ -1,0 +1,2050 @@
+<testsuites id="" name="" tests="23" failures="17" skipped="0" errors="0" time="40.782787000000006">
+<testsuite name="command-execution.test.ts" timestamp="2025-09-22T06:33:59.070Z" hostname="vscode-extension" tests="5" failures="5" skipped="0" time="69.521" errors="0">
+<testcase name="Inline Live Server Command Execution › should execute commands without &quot;Cannot read properties of undefined&quot; error" classname="command-execution.test.ts" time="13.911">
+<failure message="command-execution.test.ts:11:7 should execute commands without &quot;Cannot read properties of undefined&quot; error" type="FAILURE">
+<![CDATA[  [vscode-extension] › command-execution.test.ts:11:7 › Inline Live Server Command Execution › should execute commands without "Cannot read properties of undefined" error 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/command-execution.test.ts:7:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 3503 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2334 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(9 files)[39m [90m[1.73 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4365 files, 9.45 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[[43m[30m WARNING [39m[49m This extension consists of [1m4365[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+/bin/sh: code: command not found
+]]>
+</system-err>
+</testcase>
+<testcase name="Inline Live Server Command Execution › should handle server startup without undefined errors" classname="command-execution.test.ts" time="13.91">
+<failure message="command-execution.test.ts:72:7 should handle server startup without undefined errors" type="FAILURE">
+<![CDATA[  [vscode-extension] › command-execution.test.ts:72:7 › Inline Live Server Command Execution › should handle server startup without undefined errors 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/command-execution.test.ts:7:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 3502 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2439 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(9 files)[39m [90m[1.73 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4365 files, 9.45 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[[43m[30m WARNING [39m[49m This extension consists of [1m4365[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+/bin/sh: code: command not found
+]]>
+</system-err>
+</testcase>
+<testcase name="Inline Live Server Command Execution › should detect and report &quot;Cannot read properties of undefined&quot; errors" classname="command-execution.test.ts" time="13.895">
+<failure message="command-execution.test.ts:100:7 should detect and report &quot;Cannot read properties of undefined&quot; errors" type="FAILURE">
+<![CDATA[  [vscode-extension] › command-execution.test.ts:100:7 › Inline Live Server Command Execution › should detect and report "Cannot read properties of undefined" errors 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/command-execution.test.ts:7:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 3578 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2422 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(9 files)[39m [90m[1.73 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4365 files, 9.45 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[[43m[30m WARNING [39m[49m This extension consists of [1m4365[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+/bin/sh: code: command not found
+]]>
+</system-err>
+</testcase>
+<testcase name="Inline Live Server Command Execution › should provide error recovery mechanisms" classname="command-execution.test.ts" time="13.904">
+<failure message="command-execution.test.ts:124:7 should provide error recovery mechanisms" type="FAILURE">
+<![CDATA[  [vscode-extension] › command-execution.test.ts:124:7 › Inline Live Server Command Execution › should provide error recovery mechanisms 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/command-execution.test.ts:7:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 3629 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2381 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(9 files)[39m [90m[1.73 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4365 files, 9.45 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[[43m[30m WARNING [39m[49m This extension consists of [1m4365[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+/bin/sh: code: command not found
+]]>
+</system-err>
+</testcase>
+<testcase name="Inline Live Server Command Execution › should log errors for debugging" classname="command-execution.test.ts" time="13.901">
+<failure message="command-execution.test.ts:146:7 should log errors for debugging" type="FAILURE">
+<![CDATA[  [vscode-extension] › command-execution.test.ts:146:7 › Inline Live Server Command Execution › should log errors for debugging 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/command-execution.test.ts:7:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 3618 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2454 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(9 files)[39m [90m[1.73 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4365 files, 9.45 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[[43m[30m WARNING [39m[49m This extension consists of [1m4365[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+]]>
+</system-err>
+</testcase>
+</testsuite>
+<testsuite name="context-menu.test.ts" timestamp="2025-09-22T06:33:59.070Z" hostname="vscode-extension" tests="4" failures="4" skipped="0" time="50.265" errors="0">
+<testcase name="Inline Live Server Context Menu › should show context menu on HTML files" classname="context-menu.test.ts" time="13.91">
+<failure message="context-menu.test.ts:12:7 should show context menu on HTML files" type="FAILURE">
+<![CDATA[  [vscode-extension] › context-menu.test.ts:12:7 › Inline Live Server Context Menu › should show context menu on HTML files 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/context-menu.test.ts:8:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 3541 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2372 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(9 files)[39m [90m[1.73 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4365 files, 9.45 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[[43m[30m WARNING [39m[49m This extension consists of [1m4365[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+]]>
+</system-err>
+</testcase>
+<testcase name="Inline Live Server Context Menu › should verify context menu commands are registered" classname="context-menu.test.ts" time="12.108">
+<failure message="context-menu.test.ts:55:7 should verify context menu commands are registered" type="FAILURE">
+<![CDATA[  [vscode-extension] › context-menu.test.ts:55:7 › Inline Live Server Context Menu › should verify context menu commands are registered 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/context-menu.test.ts:8:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2998 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2269 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(9 files)[39m [90m[1.73 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4365 files, 9.45 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[[43m[30m WARNING [39m[49m This extension consists of [1m4365[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+/bin/sh: code: command not found
+]]>
+</system-err>
+</testcase>
+<testcase name="Inline Live Server Context Menu › should handle multiple HTML files" classname="context-menu.test.ts" time="12.131">
+<failure message="context-menu.test.ts:90:7 should handle multiple HTML files" type="FAILURE">
+<![CDATA[  [vscode-extension] › context-menu.test.ts:90:7 › Inline Live Server Context Menu › should handle multiple HTML files 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/context-menu.test.ts:8:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 3058 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2184 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(9 files)[39m [90m[1.73 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4365 files, 9.45 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[[43m[30m WARNING [39m[49m This extension consists of [1m4365[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+/bin/sh: code: command not found
+]]>
+</system-err>
+</testcase>
+<testcase name="Inline Live Server Context Menu › should handle non-HTML files gracefully" classname="context-menu.test.ts" time="12.116">
+<failure message="context-menu.test.ts:122:7 should handle non-HTML files gracefully" type="FAILURE">
+<![CDATA[  [vscode-extension] › context-menu.test.ts:122:7 › Inline Live Server Context Menu › should handle non-HTML files gracefully 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/context-menu.test.ts:8:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 3072 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2153 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(9 files)[39m [90m[1.73 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4365 files, 9.45 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[[43m[30m WARNING [39m[49m This extension consists of [1m4365[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+/bin/sh: code: command not found
+]]>
+</system-err>
+</testcase>
+</testsuite>
+<testsuite name="extension-installation.test.ts" timestamp="2025-09-22T06:33:59.070Z" hostname="vscode-extension" tests="4" failures="2" skipped="0" time="20.131" errors="0">
+<testcase name="Inline Live Server Extension Installation › should install VSIX package successfully" classname="extension-installation.test.ts" time="12.112">
+<failure message="extension-installation.test.ts:6:7 should install VSIX package successfully" type="FAILURE">
+<![CDATA[  [vscode-extension] › extension-installation.test.ts:6:7 › Inline Live Server Extension Installation › should install VSIX package successfully 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/extension-installation.test.ts:21:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Uninstalling extension...
+Extension not previously installed, proceeding...
+Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 3128 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2149 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(9 files)[39m [90m[1.73 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4365 files, 9.45 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[/bin/sh: code: command not found
+[43m[30m WARNING [39m[49m This extension consists of [1m4365[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+/bin/sh: code: command not found
+]]>
+</system-err>
+</testcase>
+<testcase name="Inline Live Server Extension Installation › should activate extension after installation" classname="extension-installation.test.ts" time="8.009">
+<system-out>
+<![CDATA[Waiting for extension activation...
+Extension activation verification completed
+]]>
+</system-out>
+</testcase>
+<testcase name="Inline Live Server Extension Installation › should handle installation errors gracefully" classname="extension-installation.test.ts" time="0.007">
+</testcase>
+<testcase name="Inline Live Server Extension Installation › should verify extension manifest" classname="extension-installation.test.ts" time="0.003">
+<failure message="extension-installation.test.ts:63:7 should verify extension manifest" type="FAILURE">
+<![CDATA[  [vscode-extension] › extension-installation.test.ts:63:7 › Inline Live Server Extension Installation › should verify extension manifest 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Inline Live Server by TBX"
+    Received: "TBX Live Server"
+
+      74 |     // Verify required fields
+      75 |     expect(packageJson.name).toBe('tbx-live-server');
+    > 76 |     expect(packageJson.displayName).toBe('Inline Live Server by TBX');
+         |                                     ^
+      77 |     expect(packageJson.version).toMatch(/^\d+\.\d+\.\d+$/);
+      78 |     expect(packageJson.publisher).toBe('tbx');
+      79 |     expect(packageJson.engines.vscode).toMatch(/^[\^~]?1\./);
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/extension-installation.test.ts:76:37
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="live-server.test.ts" timestamp="2025-09-22T06:33:59.070Z" hostname="vscode-extension" tests="6" failures="6" skipped="0" time="58.972" errors="0">
+<testcase name="Inline Live Server Live Server Integration › should start live server successfully" classname="live-server.test.ts" time="11.608">
+<failure message="live-server.test.ts:11:7 should start live server successfully" type="FAILURE">
+<![CDATA[  [vscode-extension] › live-server.test.ts:11:7 › Inline Live Server Live Server Integration › should start live server successfully 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/live-server.test.ts:7:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2749 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2169 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(9 files)[39m [90m[1.73 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4365 files, 9.45 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[[43m[30m WARNING [39m[49m This extension consists of [1m4365[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+/bin/sh: code: command not found
+]]>
+</system-err>
+</testcase>
+<testcase name="Inline Live Server Live Server Integration › should handle server startup errors gracefully" classname="live-server.test.ts" time="9.622">
+<failure message="live-server.test.ts:86:7 should handle server startup errors gracefully" type="FAILURE">
+<![CDATA[  [vscode-extension] › live-server.test.ts:86:7 › Inline Live Server Live Server Integration › should handle server startup errors gracefully 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/live-server.test.ts:7:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 1655 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 1586 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(5 files)[39m [90m[1.42 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4361 files, 9.17 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[[43m[30m WARNING [39m[49m This extension consists of [1m4361[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+/bin/sh: code: command not found
+]]>
+</system-err>
+</testcase>
+<testcase name="Inline Live Server Live Server Integration › should verify server configuration" classname="live-server.test.ts" time="9.434">
+<failure message="live-server.test.ts:108:7 should verify server configuration" type="FAILURE">
+<![CDATA[  [vscode-extension] › live-server.test.ts:108:7 › Inline Live Server Live Server Integration › should verify server configuration 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/live-server.test.ts:7:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2327 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2264 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(6 files)[39m [90m[1.56 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4362 files, 9.3 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[[43m[30m WARNING [39m[49m This extension consists of [1m4362[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+/bin/sh: code: command not found
+]]>
+</system-err>
+</testcase>
+<testcase name="Inline Live Server Live Server Integration › should handle server lifecycle" classname="live-server.test.ts" time="9.439">
+<failure message="live-server.test.ts:130:7 should handle server lifecycle" type="FAILURE">
+<![CDATA[  [vscode-extension] › live-server.test.ts:130:7 › Inline Live Server Live Server Integration › should handle server lifecycle 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/live-server.test.ts:7:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2279 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2316 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(6 files)[39m [90m[1.56 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4362 files, 9.3 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[[43m[30m WARNING [39m[49m This extension consists of [1m4362[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+/bin/sh: code: command not found
+]]>
+</system-err>
+</testcase>
+<testcase name="Inline Live Server Live Server Integration › should integrate with VS Code workspace" classname="live-server.test.ts" time="9.436">
+<failure message="live-server.test.ts:154:7 should integrate with VS Code workspace" type="FAILURE">
+<![CDATA[  [vscode-extension] › live-server.test.ts:154:7 › Inline Live Server Live Server Integration › should integrate with VS Code workspace 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/live-server.test.ts:7:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2308 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2267 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(6 files)[39m [90m[1.56 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4362 files, 9.3 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[[43m[30m WARNING [39m[49m This extension consists of [1m4362[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+/bin/sh: code: command not found
+]]>
+</system-err>
+</testcase>
+<testcase name="Inline Live Server Live Server Integration › should provide server status feedback" classname="live-server.test.ts" time="9.433">
+<failure message="live-server.test.ts:176:7 should provide server status feedback" type="FAILURE">
+<![CDATA[  [vscode-extension] › live-server.test.ts:176:7 › Inline Live Server Live Server Integration › should provide server status feedback 
+
+    Error: Command failed: code --install-extension /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server.vsix
+
+       at fixtures.ts:48
+
+      46 |       // Install the extension in VS Code
+      47 |       console.log('Installing extension...');
+    > 48 |       execSync(`code --install-extension ${vsixPath}`, {
+         |               ^
+      49 |         stdio: 'inherit'
+      50 |       });
+      51 |     };
+        at installExtension (/Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/fixtures.ts:48:15)
+        at /Users/tylermailman/Documents/Projects/vscode-live-server/test/playwright/live-server.test.ts:7:11
+]]>
+</failure>
+<system-out>
+<![CDATA[Building extension...
+
+> tbx-live-server@6.0.3 compile:prod
+> webpack --mode production
+
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2281 ms
+Packaging extension...
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> tbx-live-server@6.0.3 vscode:prepublish
+> npm run prepare:live-server && webpack --mode production
+
+
+> tbx-live-server@6.0.3 prepare:live-server
+> node ./scripts/ensure-live-server-deps.js
+
+Vendored live-server dependencies already installed.
+assets by path [1m[32m../out/[39m[22m 22 KiB
+  assets by path [1m[32m../out/*.ts[39m[22m 11.3 KiB
+    asset [1m[32m../out/communicationTypes.d.ts[39m[22m 3.55 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts[39m[22m 1.6 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts[39m[22m 791 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts[39m[22m 766 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+  assets by path [1m[32m../out/*.map[39m[22m 10.7 KiB
+    asset [1m[32m../out/communicationTypes.d.ts.map[39m[22m 3.46 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/commandManager-enhanced.d.ts.map[39m[22m 1.37 KiB [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/liveReloadManager.d.ts.map[39m[22m 690 bytes [1m[33m[compared for emit][39m[22m
+    asset [1m[32m../out/webviewPanelProvider-enhanced.d.ts.map[39m[22m 680 bytes [1m[33m[compared for emit][39m[22m
+    + 10 assets
+asset [1m[32mextension-enhanced.js[39m[22m 59.8 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main)
+asset [1m[32mpackage.json[39m[22m 25.5 KiB [1m[33m[compared for emit][39m[22m [from: package.json] [1m[32m[copied][39m[22m
+cacheable modules 84.2 KiB
+  [1m./src/extension-enhanced.ts[39m[22m 9.17 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/commandManager-enhanced.ts[39m[22m 48.7 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/statusBarManager.ts[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/liveReloadManager.ts[39m[22m 5.03 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/webviewPanelProvider.ts[39m[22m 9.14 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/communicationManager.ts[39m[22m 3.47 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./src/errorRecoveryManager.ts[39m[22m 5.38 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "vscode"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "path"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1mexternal "live-server"[39m[22m 42 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.101.3 compiled [1m[32msuccessfully[39m[22m in 2296 ms
+[104m[30m INFO [39m[49m [1m[34mFiles included in the VSIX:[39m[22m
+[1m[34m[39m[22m[1mtbx-live-server-6.0.3.vsix[22m
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ [1mextension/[22m
+   ├─ LICENSE.txt [90m[1.23 KB][39m
+   ├─ PROJECT-CLEANUP-SUMMARY.md [90m[3.78 KB][39m
+   ├─ README 2.backup [90m[5.36 KB][39m
+   ├─ README-EXTENSION.md [90m[5.71 KB][39m
+   ├─ build-vsix.sh [90m[1.46 KB][39m
+   ├─ changelog.md [90m[13.54 KB][39m
+   ├─ package.json [90m[25.46 KB][39m
+   ├─ readme.md [90m[11.61 KB][39m
+   ├─ test.html [90m[0.81 KB][39m
+   ├─ [1mdist/[22m [32m(2 files)[39m [90m[85.29 KB][39m
+   ├─ [1mimages/[22m [32m(6 files)[39m [90m[1.56 MB][39m
+   ├─ [1mlib/[22m [32m(4313 files)[39m [33m[13.68 MB][39m
+   ├─ [1mmedia/[22m [32m(2 files)[39m [90m[35.83 KB][39m
+   ├─ [1mpublish/[22m [32m(23 files)[39m [90m[3.07 MB][39m
+   └─ [1mtemp-vsix-extract/[22m [32m(5 files)[39m [90m[28.16 KB][39m
+
+=> Run [1mvsce ls --tree[22m to see all included files.
+
+[42m[30m DONE [39m[49m Packaged: /Users/tylermailman/Documents/Projects/vscode-live-server/tbx-live-server-6.0.3.vsix [1m(4362 files, 9.3 MB)[22m
+Installing extension...
+]]>
+</system-out>
+<system-err>
+<![CDATA[[43m[30m WARNING [39m[49m This extension consists of [1m4362[22m files, out of which [1m3202[22m are JavaScript files. For performance reasons, you should bundle your extension: [4mhttps://aka.ms/vscode-bundle-extension[24m. You should also exclude unnecessary files by adding them to your .vscodeignore: [4mhttps://aka.ms/vscode-vscodeignore[24m.
+
+/bin/sh: code: command not found
+]]>
+</system-err>
+</testcase>
+</testsuite>
+<testsuite name="screenshot-generation.test.ts" timestamp="2025-09-22T06:33:59.070Z" hostname="screenshot-generation" tests="4" failures="0" skipped="0" time="10.556" errors="0">
+<testcase name="Marketplace Listing Screenshots › Hero Screenshot - Inline Preview + Code" classname="screenshot-generation.test.ts" time="3.123">
+<system-out>
+<![CDATA[📸 Marketplace screenshot saved: hero-preview.png
+]]>
+</system-out>
+</testcase>
+<testcase name="Marketplace Listing Screenshots › Multi-Server Management Panel" classname="screenshot-generation.test.ts" time="2.725">
+<system-out>
+<![CDATA[📸 Marketplace screenshot saved: multi-server-dropdown.png
+]]>
+</system-out>
+</testcase>
+<testcase name="Marketplace Listing Screenshots › Status Bar Toggle Detail" classname="screenshot-generation.test.ts" time="2.419">
+<system-out>
+<![CDATA[📸 Marketplace screenshot saved: status-bar.png
+]]>
+</system-out>
+</testcase>
+<testcase name="Marketplace Listing Screenshots › Command Palette / Quick Start" classname="screenshot-generation.test.ts" time="2.289">
+<system-out>
+<![CDATA[📸 Marketplace screenshot saved: command-palette.png
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
